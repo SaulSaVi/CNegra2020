@@ -3,26 +3,36 @@ const request = require('request');
 
 
     function pelisGhibli(error,response,body){
-        console.log("Status Code: "+response.statusCode);
+        console.log("Status Code: "+response.statusCode+"\n");
         const data = JSON.parse(body)
-        const total = [];
         
+        console.log("+Lista de películas de estudio ghibli+\n")
         for (let i = 0; i < data.length; i++){
-            console.log(data[i].title); 
+            console.log(`${data[i].title} (${data[i].release_date})`); 
             }
-        
-        //console.log(data[0].title)
         }
     
-    request(`https://ghibliapi.herokuapp.com/films`, pelisGhibli)
+    request('https://ghibliapi.herokuapp.com/films', pelisGhibli)
     
 
-    request.get('https://ghibliapi.herokuapp.com/films', (err, res, body) => {
-  return new Promise((resolve, reject) => {
-    res.statusCode === 200
-      ? resolve(JSON.parse(body).results)
-      : reject(`Error ${res.statusCode}`);
-  });
-})
-  .then( res => {console.log(res)} )  // Función Flecha Optimizada
-  .catch((err) => { return console.log(err);}); // Función Flecha sin optimizar
+// request.get('https://ghibliapi.herokuapp.com/films', (err, res, body) => {
+//   if (res.statusCode === 200) {
+//     const characters = JSON.parse(body).results;
+//     data.map(title => {
+//       console.log(data.title);
+//     })
+//   } else {
+//     console.log('Error en la petición');
+//   }
+// });
+
+
+//     request.get('https://ghibliapi.herokuapp.com/films', (err, res, body) => {
+//   return new Promise((resolve, reject) => {
+//     res.statusCode === 200
+//       ? resolve(JSON.parse(body).results)
+//       : reject(`Error ${res.statusCode}`);
+//   });
+// })
+//   .then( (res) => {console.log(res)} )  // Función Flecha Optimizada
+//   .catch((err) => { return console.log(err);}); // Función Flecha sin optimizar
