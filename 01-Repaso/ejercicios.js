@@ -1,17 +1,17 @@
 // // Accede y consume alguno de los endpoints de las siguientes APIs:
 const request = require('request');
 
-// // 1) https://ghibliapi.herokuapp.com/#
-// const promiseGhibli = new Promise((resolve, reject) => {
-//     request.get('https://ghibliapi.herokuapp.com/people/', (err, res, body) => {
-//       if (res.statusCode === 200) resolve(JSON.parse(body));
-//       reject(`${res.statusCode} - ${err}`);
-//   });
-// });
+// 1) https://ghibliapi.herokuapp.com/#
+const promiseGhibli = new Promise((resolve, reject) => {
+    request.get('https://ghibliapi.herokuapp.com/people/', (err, res, body) => {
+      if (res.statusCode === 200) resolve(JSON.parse(body));
+      reject(`${res.statusCode} - ${err}`);
+  });
+});
 
-// // promiseGhibli
-// //   .then(characters => characters.map(character => console.log(character.name)))
-// //   .catch(laNombroComoYoQuiera => console.log(laNombroComoYoQuiera));
+promiseGhibli
+  .then(characters => characters.map(character => console.log(character.name)))
+  .catch(laNombroComoYoQuiera => console.log(laNombroComoYoQuiera));
 
 
 // // 2) https://www.last.fm/api/
