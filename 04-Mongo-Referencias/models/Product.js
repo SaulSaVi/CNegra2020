@@ -7,11 +7,6 @@ const mongoose = require('mongoose');
         -Nombre (string)
         -Precio (number)
         -Existencias (number)
-    - Ticket
-        -subtotal (number)
-        -IVA (number)
-        -total (number)
-        -articulos (articulo)
 */
 
 const productsSchema = new mongoose.Schema({
@@ -29,6 +24,6 @@ const productsSchema = new mongoose.Schema({
   }
 });
 
-const Products = mongoose.model('Products', productsSchema);
+const Product = mongoose.model('Product', productsSchema);
 
-module.exports = Products;
+module.exports = Product;
